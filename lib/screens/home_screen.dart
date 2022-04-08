@@ -1,5 +1,4 @@
 import 'package:covid_app/data/data.dart';
-import 'package:covid_app/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,7 +13,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
   final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: AppBar(
+        title: const Text('ป้องกันไว้ ห่างไกลโควิด'),
+        backgroundColor: const Color.fromARGB(255, 144, 90, 231),
+      ),
       body: CustomScrollView(
         physics: const ClampingScrollPhysics(),
         slivers: <Widget>[
@@ -31,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: const BoxDecoration(
-          color: Colors.purpleAccent,
+          color: Color.fromARGB(255, 159, 99, 255),
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(40.0),
             bottomRight: Radius.circular(40.0),
