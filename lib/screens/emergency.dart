@@ -58,17 +58,9 @@ class _emergencyScreenState extends State<emergencyScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  '',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
                 SizedBox(height: screenHeight * 0.01),
                 Text(
-                  'สถานการณ์โควิด-19 ระบาดในช่วงนี้ หลาย ๆคนอาจจะกำลังเป็นกังวลต่อสถานการณ์ต่าง ๆ เช่น ยอดผู้ติดเชื้อ อาการผิดปกติของตนเอง ซึ่งหากมีปัญหาต่าง ๆ ไม่ว่าจะเป็นเรื่องปรึกษาโรค เจอหน้ากากอนามัยแพงกว่าปกติ หรือ เหตุฉุกเฉินใดๆ ก็ตามสามารถติดต่อที่ สายด่วน ฉุกเฉิน',
+                  'สถานการณ์โควิด-19 ระบาดในช่วงนี้ หลายๆคนอาจจะกำลังเป็นกังวลต่อสถานการณ์ต่างๆ เช่น ยอดผู้ติดเชื้อ อาการผิดปกติของตนเอง ซึ่งหากมีปัญหาต่างๆ ไม่ว่าจะเป็นเรื่องปรึกษาโรค เจอหน้ากากอนามัยแพงกว่าปกติ หรือ เหตุฉุกเฉินใดๆ ก็ตามสามารถติดต่อที่ สายด่วน ฉุกเฉิน',
                   style: const TextStyle(
                     color: Colors.white70,
                     fontSize: 15.0,
@@ -81,6 +73,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
       ),
     );
   }
+  
   SliverToBoxAdapter _buildemergency(double screenHeight) {
     final number1 = "1669";
     final number2 = "1506";
