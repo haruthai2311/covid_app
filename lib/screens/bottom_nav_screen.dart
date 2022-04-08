@@ -1,6 +1,7 @@
 
 import 'package:covid_app/screens/emergency.dart';
 import 'package:covid_app/screens/home_screen.dart';
+import 'package:covid_app/screens/info_screen.dart';
 import 'package:covid_app/screens/state_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     HomeScreen(),
     emergencyScreen(),
     Scaffold(),
-    Scaffold(),
+    InfoScreen(),
     //Scaffold(),
     //Scaffold(),
     //InfoScreen(),
