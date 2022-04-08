@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 import 'package:covid_app/screens/info_screen.dart';
+=======
+import 'package:covid_app/screens/home_screen.dart';
+>>>>>>> 3f175e9e4b7be185353cd88d70d88d840c6d55ae
 import 'package:covid_app/screens/state_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +15,10 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     StateScreen(),
-    //HomeScreen(),
-    Scaffold(),
+    HomeScreen(),
     Scaffold(),
     InfoScreen(),
+    //Scaffold(),
     //Scaffold(),
     //InfoScreen(),
   ];
