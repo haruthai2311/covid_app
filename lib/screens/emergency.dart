@@ -73,7 +73,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
       ),
     );
   }
-  
+
   SliverToBoxAdapter _buildemergency(double screenHeight) {
     final number1 = "1669";
     final number2 = "1506";
