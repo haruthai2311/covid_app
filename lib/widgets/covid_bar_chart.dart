@@ -1,14 +1,14 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class BarChartSample2 extends StatefulWidget {
-  const BarChartSample2({Key? key}) : super(key: key);
+class CovidBarChart extends StatefulWidget {
+  const CovidBarChart({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => BarChartSample2State();
+  State<StatefulWidget> createState() => CovidBarChartState();
 }
 
-class BarChartSample2State extends State<BarChartSample2> {
+class CovidBarChartState extends State<CovidBarChart> {
   
   final Color leftBarColor = Color.fromARGB(255, 158, 158, 158);
   final double width = 7;

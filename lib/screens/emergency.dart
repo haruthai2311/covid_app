@@ -108,6 +108,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   backgroundColor: Colors.lightGreenAccent,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     side: BorderSide(color: Colors.black),
                   ),
                 ),
@@ -129,6 +130,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   backgroundColor: Colors.lightGreenAccent,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     side: BorderSide(color: Colors.black),
                   ),
                 ),
@@ -150,6 +152,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   backgroundColor: Colors.lightGreenAccent,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     side: BorderSide(color: Colors.black),
                   ),
                 ),
@@ -171,6 +174,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   backgroundColor: Colors.lightGreenAccent,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     side: BorderSide(color: Colors.black),
                   ),
                 ),
@@ -192,6 +196,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   backgroundColor: Colors.lightGreenAccent,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     side: BorderSide(color: Colors.black),
                   ),
                 ),
@@ -213,6 +218,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   backgroundColor: Colors.lightGreenAccent,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     side: BorderSide(color: Colors.black),
                   ),
                 ),
@@ -234,6 +240,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   backgroundColor: Colors.lightGreenAccent,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     side: BorderSide(color: Colors.black),
                   ),
                 ),
@@ -248,5 +255,4 @@ class _emergencyScreenState extends State<emergencyScreen> {
       ),
     );
   }
-  
 }

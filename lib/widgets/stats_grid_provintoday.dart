@@ -131,15 +131,16 @@ class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
                         //to show search box
                         showSearchBox: true,
                         showSelectedItem: true,
+                        
                         searchBoxDecoration: const InputDecoration(
-                    prefixIcon:  Icon(Icons.search),
-                    ),
+                          prefixIcon: Icon(Icons.search),
+                        ),
                         popupShape: const RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(15.0))),
                         dropdownSearchDecoration: const InputDecoration(
-                    prefixIcon:  Icon(Icons.search),
-                    ),
+                          prefixIcon: Icon(Icons.search),
+                        ),
                         //list of dropdown items
                         items: items,
                         //label: "จังหวัด",
@@ -147,7 +148,7 @@ class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
                         onChanged: (newValue) {
                           setState(() {
                             dropdownvalue = newValue.toString();
-                            //print(items.indexOf(dropdownvalue)) ;
+                            print(items.indexOf(dropdownvalue)) ;
                           });
                         },
                       ),
@@ -209,7 +210,7 @@ class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
                                     .totalCaseExcludeabroad
                                     .toString()
                                     .replaceAllMapped(reg, mathFunc),
-                                 Colors.teal),
+                                Colors.teal),
                             _buildStatCard(
                                 'จากต่างประเทศ',
                                 (result[items.indexOf(dropdownvalue)].newCase -
