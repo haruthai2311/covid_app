@@ -1,5 +1,8 @@
+import 'package:covid_app/api/covid_timeline.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:charts_flutter/flutter.dart' as charts;
 
 class CovidBarChart extends StatefulWidget {
   const CovidBarChart({Key? key}) : super(key: key);
@@ -9,12 +12,12 @@ class CovidBarChart extends StatefulWidget {
 }
 
 class CovidBarChartState extends State<CovidBarChart> {
-  
-  final Color leftBarColor = Color.fromARGB(255, 158, 158, 158);
+  final Color leftBarColor = Color.fromARGB(255, 109, 16, 16);
   final double width = 7;
 
   late List<BarChartGroupData> rawBarGroups;
   late List<BarChartGroupData> showingBarGroups;
+  late List<CovidTimeline> _dataFromAPI = [];
 
   int touchedGroupIndex = -1;
 
@@ -38,10 +41,36 @@ class CovidBarChartState extends State<CovidBarChart> {
       barGroup6,
       barGroup7,
     ];
+    getData();
 
     rawBarGroups = items;
 
     showingBarGroups = rawBarGroups;
+  }
+
+  Future<List<CovidTimeline>> getData() async {
+    print('get data');
+    //var url = 'https://covid19.ddc.moph.go.th/api/Cases/timeline-cases-all';
+    var response = await http.get(Uri.parse(
+        'https://covid19.ddc.moph.go.th/api/Cases/timeline-cases-all'));
+    //_dataFromAPI = covidToDayFromJson(response.body);
+    //return _dataFromAPI;
+    print(response.body);
+    _dataFromAPI = covidTimelineFromJson(response.body);
+    print(_dataFromAPI);
+    return _dataFromAPI;
+  }
+
+  List<charts.Series<CovidTimeline, DateTime>> _createSampleData() {
+    return [
+      charts.Series<CovidTimeline, DateTime>(
+        data: _dataFromAPI,
+        id: 'new case',
+        colorFn: (_, __) => charts.MaterialPalette.teal.shadeDefault,
+        domainFn: (CovidTimeline covidTimeline, _) => (covidTimeline.updateDate),
+        measureFn: (CovidTimeline covidTimeline, _) => covidTimeline.newCase,
+      )
+    ];
   }
 
   @override
@@ -51,7 +80,7 @@ class CovidBarChartState extends State<CovidBarChart> {
       child: Card(
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-        color: Color.fromARGB(255, 249, 239, 255),
+        color: Color.fromARGB(255, 255, 186, 186),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -88,7 +117,7 @@ class CovidBarChartState extends State<CovidBarChart> {
               Expanded(
                 child: BarChart(
                   BarChartData(
-                    maxY: 20,
+                    maxY: 45,
                     barTouchData: BarTouchData(
                         touchTooltipData: BarTouchTooltipData(
                           tooltipBgColor: Colors.grey,
@@ -182,15 +211,29 @@ class CovidBarChartState extends State<CovidBarChart> {
     const style = TextStyle(
       color: Color(0xff7589a2),
       fontWeight: FontWeight.bold,
-      fontSize: 14,
+      fontSize: 12,
     );
     String text;
     if (value == 0) {
-      text = '1K';
-    } else if (value == 10) {
-      text = '5K';
-    } else if (value == 19) {
+      text = '0';
+    } else if (value == 5) {
       text = '10K';
+    } else if (value == 10) {
+      text = '1.5K';
+    } else if (value == 15) {
+      text = '2K';
+    } else if (value == 20) {
+      text = '2.5K';
+    } else if (value == 25) {
+      text = '3K';
+    } else if (value == 30) {
+      text = '3.5K';
+    } else if (value == 35) {
+      text = '4K';
+    } else if (value == 40) {
+      text = '4.5K';
+    } else if (value == 45) {
+      text = '5K';
     } else {
       return Container();
     }
@@ -283,7 +326,7 @@ class CovidBarChartState extends State<CovidBarChart> {
         Container(
           width: width,
           height: 10,
-          color: Colors.white.withOpacity(0.4),
+          color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.4),
         ),
         const SizedBox(
           width: space,
@@ -291,7 +334,7 @@ class CovidBarChartState extends State<CovidBarChart> {
         Container(
           width: width,
           height: 28,
-          color: Colors.white.withOpacity(0.8),
+          color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.8),
         ),
         const SizedBox(
           width: space,
@@ -299,7 +342,7 @@ class CovidBarChartState extends State<CovidBarChart> {
         Container(
           width: width,
           height: 42,
-          color: Colors.white.withOpacity(1),
+          color: Color.fromARGB(255, 0, 0, 0).withOpacity(1),
         ),
         const SizedBox(
           width: space,
@@ -307,7 +350,7 @@ class CovidBarChartState extends State<CovidBarChart> {
         Container(
           width: width,
           height: 28,
-          color: Colors.white.withOpacity(0.8),
+          color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.8),
         ),
         const SizedBox(
           width: space,
@@ -315,7 +358,7 @@ class CovidBarChartState extends State<CovidBarChart> {
         Container(
           width: width,
           height: 10,
-          color: Colors.white.withOpacity(0.4),
+          color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.4),
         ),
       ],
     );
