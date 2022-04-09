@@ -1,5 +1,6 @@
 import 'package:covid_app/data/data.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
@@ -33,10 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 159, 99, 255),
+          color: Color.fromARGB(255, 99, 15, 233),
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(40.0),
-            bottomRight: Radius.circular(40.0),
+            bottomLeft: Radius.circular(30.0),
+            bottomRight: Radius.circular(30.0),
           ),
         ),
         child: Column(
@@ -46,10 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const <Widget>[
                 Text(
-                  'COVID-19',
+                  'ไม่อยากติดโควิด 19 ป้องกันตัวเองอย่างไร?',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 25.0,
+                    fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -58,69 +59,14 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: screenHeight * 0.03),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                const Text(
-                  'คุณรู้สึกป่วยหรือไม่?',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(height: screenHeight * 0.01),
-                const Text(
-                  'หากคุณรู้สึกป่วยด้วยอาการใดๆ ของ COVID-19 โปรดโทรหรือส่งข้อความหาเราทันทีเพื่อขอความช่วยเหลือ',
+              children: const <Widget>[
+                Text(
+                  'การป้องกันตัวเองและสังคมจากการติดเชื้อไวรัสโคโรนาสายพันธุ์ใหม่ หรือ โควิด-19 เป็นมาตรการที่ประชาชนทุกคนควรทำและให้ความร่วมมือ เพื่อช่วยป้องกันและลดความเสี่ยงในการเกิดโรค รวมถึงลดการแพร่กระจายเชื้อในสังคม',
                   style: TextStyle(
                     color: Colors.white70,
-                    fontSize: 15.0,
+                    fontSize: 16.0,
                   ),
                 ),
-                // SizedBox(height: screenHeight * 0.03),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: <Widget>[
-                //     FlatButton.icon(
-                //       padding: const EdgeInsets.symmetric(
-                //         vertical: 10.0,
-                //         horizontal: 20.0,
-                //       ),
-                //       onPressed: () {},
-                //       color: Colors.red,
-                //       shape: RoundedRectangleBorder(
-                //         borderRadius: BorderRadius.circular(30.0),
-                //       ),
-                //       icon: const Icon(
-                //         Icons.phone,
-                //         color: Colors.white,
-                //       ),
-                //       label: Text(
-                //         'Call Now',
-                //         style: Styles.buttonTextStyle,
-                //       ),
-                //       textColor: Colors.white,
-                //     ),
-                //     FlatButton.icon(
-                //       padding: const EdgeInsets.symmetric(
-                //         vertical: 10.0,
-                //         horizontal: 20.0,
-                //       ),
-                //       onPressed: () {},
-                //       color: Colors.blue,
-                //       shape: RoundedRectangleBorder(
-                //         borderRadius: BorderRadius.circular(30.0),
-                //       ),
-                //       icon: const Icon(
-                //         Icons.chat_bubble,
-                //         color: Colors.white,
-                //       ),
-                //       label: Text(
-                //         'Send SMS',
-                //         style: Styles.buttonTextStyle,
-                //       ),
-                //       textColor: Colors.white,
-                //     ),
-                //   ],
-                // ),
               ],
             )
           ],
@@ -138,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             const Text(
               //'Prevention Tips',
-              'เคล็ดลับการป้องกัน',
+              'มาตรการป้องกันโรค',
               style: TextStyle(
                 fontSize: 22.0,
                 fontWeight: FontWeight.w600,
@@ -187,34 +133,40 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           borderRadius: BorderRadius.circular(20.0),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            Image.asset('assets/images/own_test.png'),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+        child: InkWell(
+          child: 
+          
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                const Text(
-                  'แบบประเมินความเสี่ยง!',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: screenHeight * 0.01),
-                const Text(
-                  'ทำตามคำแนะนำ\nเพื่อประเมินอาการของคุณ',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16.0,
-                  ),
-                  maxLines: 2,
-                ),
+                
+                Image.asset('assets/images/own_test.png'),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const Text(
+                      'แบบประเมินความเสี่ยง!',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: screenHeight * 0.01),
+                    const Text(
+                      'ทำตามคำแนะนำ\nเพื่อประเมินอาการของคุณ',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
+                      ),
+                      maxLines: 2,
+                    ),
+                  ],
+                )
               ],
-            )
-          ],
+            ), onTap: () => launch('https://savethai.anamai.moph.go.th/poll.php')
+          
         ),
       ),
     );
