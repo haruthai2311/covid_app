@@ -22,10 +22,10 @@ class _InfoScreenState extends State<InfoScreen> {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 37, 3, 100),
+        backgroundColor: Color.fromARGB(255, 143, 0, 187),
         title: const Text(
           'อาการ! COVID-19',
-          style: TextStyle(color: Colors.grey),
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
         ),
       ),
       body: Scaffold(
