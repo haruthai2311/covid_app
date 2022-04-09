@@ -1,6 +1,7 @@
 import 'package:covid_app/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
@@ -10,6 +11,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: '0oMZf_ogKUk',
+    flags: const YoutubePlayerFlags(
+      autoPlay: false,
+      mute: false,
+
+    ));
+
    @override
   Widget build(BuildContext context) {
   final screenHeight = MediaQuery.of(context).size.height;
@@ -24,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
           _buildHeader(screenHeight),
           _buildPreventionTips(screenHeight),
           _buildYourOwnTest(screenHeight),
+          _buildYouTube(screenHeight)
         ],
       ),
     );
@@ -34,10 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 99, 15, 233),
+          color: Color.fromARGB(255, 134, 74, 231),
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(30.0),
-            bottomRight: Radius.circular(30.0),
+           bottomLeft: Radius.circular(30.0),
+           bottomRight: Radius.circular(30.0),
           ),
         ),
         child: Column(
@@ -126,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
           horizontal: 20.0,
         ),
         padding: const EdgeInsets.all(10.0),
-        height: screenHeight * 0.15,
+        height: screenHeight * 0.20,
         decoration: BoxDecoration(
           gradient: const LinearGradient(
             colors: [Color.fromARGB(255, 255, 181, 200), Color.fromARGB(255, 255, 0, 0)],
@@ -170,5 +180,51 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+    
   }
+  SliverToBoxAdapter _buildYouTube(double screenHeight) {
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const Text(
+              //'Prevention Tips',
+              'เกร็ดความรู้สู้โควิด',
+              style: TextStyle(
+                fontSize: 22.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 20),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+    
+              children: <Widget>[
+                YoutubePlayer(
+                  //width: 350,
+                  controller: _controller,
+                  //showVideoProgressIndicator: true,
+                  progressIndicatorColor: Colors.blueAccent,
+                  ),
+                  
+              ]
+              
+            ),
+            const SizedBox(height: 10),
+            Center(
+              child: InkWell(
+                child: const Text('ที่มา : YouTube ความรู้สู้ COVID-19🏥'),
+                onTap: () => launch('https://www.youtube.com/watch?v=0oMZf_ogKUk'),
+              ),
+            )    
+          ],
+        ),
+      ),
+    );
+  }
+
+  
+
 }

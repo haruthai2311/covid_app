@@ -39,7 +39,7 @@ class _StatsGridToday extends State<StatsGridToday> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox( //Container
-          height: MediaQuery.of(context).size.height * 0.35,
+          height: MediaQuery.of(context).size.height * 0.30,
           child: FutureBuilder(
               future: getData(),
               builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {

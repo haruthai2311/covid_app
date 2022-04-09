@@ -15,7 +15,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(backgroundColor: const Color.fromARGB(255, 144, 90, 231)),
+      appBar: AppBar(title: const Text('เบอร์โทรฉุกเฉิน!!!'), backgroundColor: const Color.fromARGB(255, 144, 90, 231)),
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
@@ -32,7 +32,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 144, 90, 231),
+          color: Color.fromARGB(255, 129, 82, 206),
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(40.0),
             bottomRight: Radius.circular(40.0),
@@ -45,7 +45,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  'เบอร์โทรฉุกเฉิน COVID-19',
+                  'เบอร์โทรฉุกเฉินรับมือ COVID-19',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 25.0,
@@ -109,7 +109,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+                    
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -131,7 +131,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+                   
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -153,7 +153,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+                    
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -175,7 +175,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+               
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -197,7 +197,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -219,7 +219,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+        
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -241,7 +241,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+            
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),

@@ -15,7 +15,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     StateScreen(),
     HomeScreen(),
     emergencyScreen(),
-    InfoScreen()
+    InfoScreen(),
     //Scaffold(),
     //Scaffold(),
     //InfoScreen(),
