@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final YoutubePlayerController _controller = YoutubePlayerController(
     initialVideoId: '0oMZf_ogKUk',
     flags: const YoutubePlayerFlags(
-      autoPlay: true,
+      autoPlay: false,
       mute: false,
 
     ));
@@ -44,10 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 99, 15, 233),
+          color: Color.fromARGB(255, 134, 74, 231),
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(30.0),
-            bottomRight: Radius.circular(30.0),
+           bottomLeft: Radius.circular(30.0),
+           bottomRight: Radius.circular(30.0),
           ),
         ),
         child: Column(
@@ -224,5 +224,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  
 
 }
