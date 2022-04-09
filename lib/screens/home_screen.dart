@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
           horizontal: 20.0,
         ),
         padding: const EdgeInsets.all(10.0),
-        height: screenHeight * 0.15,
+        height: screenHeight * 0.20,
         decoration: BoxDecoration(
           gradient: const LinearGradient(
             colors: [Color.fromARGB(255, 255, 181, 200), Color.fromARGB(255, 255, 0, 0)],
@@ -199,13 +199,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 20),
             Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
     
               children: <Widget>[
                 YoutubePlayer(
-                  width: 350,
+                  //width: 350,
                   controller: _controller,
-                  showVideoProgressIndicator: true,
+                  //showVideoProgressIndicator: true,
                   progressIndicatorColor: Colors.blueAccent,
                   ),
                   
