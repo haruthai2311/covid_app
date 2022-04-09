@@ -2,8 +2,6 @@ import 'package:covid_app/config/styles.dart';
 import 'package:covid_app/models/strain.dart';
 import 'package:covid_app/widgets/info_list.dart';
 import 'package:covid_app/widgets/info_list_view.dart';
-import 'package:covid_app/widgets/stats_grid_provintoday.dart';
-import 'package:covid_app/widgets/stats_grid_today.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -25,7 +23,7 @@ class _InfoScreenState extends State<InfoScreen> {
         backgroundColor: const Color.fromARGB(255, 37, 3, 100),
         title: const Text(
           'อาการ! COVID-19',
-          style: TextStyle(color: Colors.grey),
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
         ),
       ),
       body: Scaffold(

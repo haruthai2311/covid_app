@@ -109,7 +109,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+                    
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -131,7 +131,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+                   
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -153,7 +153,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+                    
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -175,7 +175,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+               
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -197,7 +197,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -219,7 +219,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+        
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
@@ -241,7 +241,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    side: BorderSide(color: Colors.black),
+            
                   ),
                 ),
                 child: Text('Call', style: TextStyle(color: Colors.black)),
