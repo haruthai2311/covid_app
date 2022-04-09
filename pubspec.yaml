@@ -38,6 +38,7 @@ dependencies:
   url_launcher: ^6.0.9
   flutter_phone_direct_caller: ^2.1.0
   dropdown_search: ^0.6.3
+  youtube_player_flutter: ^8.0.0
 
 dev_dependencies:
   flutter_test:
