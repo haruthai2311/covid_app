@@ -12,6 +12,8 @@ class Strain {
         'โอไมครอน': Covid.generateButton2(),
         'เดลต้า': Covid.generateButton3(),
         'แลมบ์ดา': Covid.generateButton4(),
+        'อัลฟ่า': Covid.generateButton5(),
+        'เบต้า': Covid.generateButton6(),
       },
     );
   }
