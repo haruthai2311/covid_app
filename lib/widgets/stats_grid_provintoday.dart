@@ -232,7 +232,10 @@ class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
                     ],
                   );
                 }
-                return const LinearProgressIndicator();
+                return const SizedBox(
+                child: CircularProgressIndicator(color: Colors.grey,),
+               width: 300.0,
+              );
               })),
     );
   }

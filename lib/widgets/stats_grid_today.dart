@@ -122,7 +122,10 @@ class _StatsGridToday extends State<StatsGridToday> {
                     ],
                   );
                 }
-                return const LinearProgressIndicator();
+                return  const SizedBox(
+                child: CircularProgressIndicator(color: Colors.grey,),
+               width: 230.0,
+              );
               })),
     );
   }
