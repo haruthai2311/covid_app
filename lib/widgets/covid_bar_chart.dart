@@ -68,8 +68,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                 elevation: 4,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18)),
-                color: Color.fromARGB(255, 89, 80, 97)
-,
+                color: Color.fromARGB(255, 89, 80, 97),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 16.0),
                   child: Column(
@@ -446,7 +445,12 @@ class CovidBarChartState extends State<CovidBarChart> {
                             ],
                           ),
                         ),
-                      )
+                      ),Text(
+                            '1 week (Day-Month)',
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                fontSize: 15),
+                          ),SizedBox(height: 5),
                     ], 
                 ),
               ),
