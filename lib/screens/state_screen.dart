@@ -48,7 +48,6 @@ class _StateScreenState extends State<StateScreen> {
                       children: const [
                         StatsGridToday(),
                         CovidBarChart(),
-                        
                       ],
                     ),
                   ),
