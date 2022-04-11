@@ -14,8 +14,8 @@ class _LineChartDeathState extends State<LineChartDeath> {
   late List<CovidTimeline> _dataFromAPITimeline;
 
   List<Color> gradientColors = [
-    const Color.fromARGB(255, 230, 35, 35),
-    const Color.fromARGB(255, 211, 2, 2),
+    Color.fromARGB(255, 255, 166, 0),
+    Color.fromARGB(255, 255, 0, 0),
   ];
 
   bool showAvg = false;
