@@ -2,7 +2,6 @@ import 'package:covid_app/api/covid_timeline.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:charts_flutter/flutter.dart' as charts;
 
 class LineChartDeath extends StatefulWidget {
   const LineChartDeath({Key? key}) : super(key: key);
@@ -15,8 +14,8 @@ class _LineChartDeathState extends State<LineChartDeath> {
   late List<CovidTimeline> _dataFromAPITimeline;
 
   List<Color> gradientColors = [
-    Color.fromARGB(255, 230, 35, 35),
-    Color.fromARGB(255, 211, 2, 2),
+    const Color.fromARGB(255, 230, 35, 35),
+    const Color.fromARGB(255, 211, 2, 2),
   ];
 
   bool showAvg = false;
