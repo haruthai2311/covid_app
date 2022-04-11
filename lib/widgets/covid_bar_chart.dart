@@ -2,7 +2,6 @@ import 'package:covid_app/api/covid_timeline.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:charts_flutter/flutter.dart' as charts;
 
 class CovidBarChart extends StatefulWidget {
   const CovidBarChart({Key? key}) : super(key: key);
@@ -48,18 +47,7 @@ class CovidBarChartState extends State<CovidBarChart> {
     return _dataFromAPITimeline;
   }
 
-  List<charts.Series<CovidTimeline, DateTime>> _createSampleData() {
-    return [
-      charts.Series<CovidTimeline, DateTime>(
-        data: _dataFromAPITimeline,
-        id: 'new case',
-        colorFn: (_, __) => charts.MaterialPalette.teal.shadeDefault,
-        domainFn: (CovidTimeline covidTimeline, _) =>
-            (covidTimeline.updateDate),
-        measureFn: (CovidTimeline covidTimeline, _) => covidTimeline.newCase,
-      )
-    ];
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +63,8 @@ class CovidBarChartState extends State<CovidBarChart> {
               child: Card(
                 elevation: 4,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6)),
-                color: Color.fromARGB(255, 233, 232, 231),
+                    borderRadius: BorderRadius.circular(18)),
+                color: Color.fromARGB(255, 254, 196, 61),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 16.0),
                   child: BarChart(
@@ -234,7 +222,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                 rodStackItems: [
                                   // BarChartRodStackItem(0, 2000000000, dark),
                                 ],
-                                color: Colors.orange,
+                                color: Color.fromARGB(255, 0, 117, 227),
                                 width: 10,
                                 borderRadius:
                                     const BorderRadius.all(Radius.zero)),
@@ -243,7 +231,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                 rodStackItems: [
                                   // BarChartRodStackItem(0, 2000000000, dark),
                                 ],
-                                color: Color.fromARGB(221, 0, 146, 17),
+                                color: Color.fromARGB(221, 187, 183, 188),
                                 width: 10,
                                 borderRadius:
                                     const BorderRadius.all(Radius.zero)),

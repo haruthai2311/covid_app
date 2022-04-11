@@ -1,4 +1,5 @@
 import 'package:covid_app/widgets/covid_bar_chart.dart';
+import 'package:covid_app/widgets/linecharts.dart';
 import 'package:covid_app/widgets/stats_grid_provintoday.dart';
 import 'package:covid_app/widgets/stats_grid_today.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +48,10 @@ class _StateScreenState extends State<StateScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
                         StatsGridToday(),
+                        SizedBox(height: 10),
                         CovidBarChart(),
+                        SizedBox(height: 15),
+                        LineChartDeath(),
                       ],
                     ),
                   ),
