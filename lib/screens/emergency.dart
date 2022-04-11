@@ -207,7 +207,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
               ),
             ),
             ListTile(
-              title: Text('สายด่วยสุขภาพจิต'),
+              title: Text('สายด่วนสุขภาพจิต'),
               subtitle: Text(number6),
               leading: CircleAvatar(
                 backgroundImage: NetworkImage(

@@ -3,7 +3,6 @@ import 'package:covid_app/config/styles.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:charts_flutter/flutter.dart' as charts;
 
 class CovidBarChart extends StatefulWidget {
   const CovidBarChart({Key? key}) : super(key: key);
@@ -49,18 +48,7 @@ class CovidBarChartState extends State<CovidBarChart> {
     return _dataFromAPITimeline;
   }
 
-  List<charts.Series<CovidTimeline, DateTime>> _createSampleData() {
-    return [
-      charts.Series<CovidTimeline, DateTime>(
-        data: _dataFromAPITimeline,
-        id: 'new case',
-        colorFn: (_, __) => charts.MaterialPalette.teal.shadeDefault,
-        domainFn: (CovidTimeline covidTimeline, _) =>
-            (covidTimeline.updateDate),
-        measureFn: (CovidTimeline covidTimeline, _) => covidTimeline.newCase,
-      )
-    ];
-  }
+  
 
   @override
   Widget build(BuildContext context) {
