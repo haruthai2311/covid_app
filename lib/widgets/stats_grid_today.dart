@@ -61,7 +61,7 @@ class _StatsGridToday extends State<StatsGridToday> {
                                     .totalCase
                                     .toString()
                                     .replaceAllMapped(reg, mathFunc),
-                                Colors.orange),
+                                Colors.pink),
                             _buildStatCardToday(
                                 'จำนวนผู้เสียชีวิตรายใหม่',
                                 result[0]
@@ -115,7 +115,7 @@ class _StatsGridToday extends State<StatsGridToday> {
                                     .totalRecovered
                                     .toString()
                                     .replaceAllMapped(reg, mathFunc),
-                                Colors.green),
+                                Colors.lightBlue),
                           ],
                         ),
                       ),
