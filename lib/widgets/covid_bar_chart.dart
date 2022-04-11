@@ -14,8 +14,8 @@ class CovidBarChart extends StatefulWidget {
 
 class CovidBarChartState extends State<CovidBarChart> {
   late List<CovidTimeline> _dataFromAPITimeline;
-  static const newCase = Colors.orange;
-  static const recovered = Color.fromARGB(221, 0, 146, 17);
+  static const newCase = graph1Color;
+  static const recovered = graph2Color;
 
   Widget leftTitles(double value, TitleMeta meta) {
     if (value == meta.max) {
@@ -87,8 +87,9 @@ class CovidBarChartState extends State<CovidBarChart> {
                           const Text(
                             'New Case',
                             style: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontSize: 22),
+                                color: Color.fromARGB(255, 255, 51, 51),
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(
                             width: 4,
@@ -96,7 +97,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                           const Text(
                             'Last 1 week',
                             style: TextStyle(
-                                color: Color.fromARGB(255, 66, 73, 85),
+                                color: Color.fromARGB(255, 245, 189, 84),
                                 fontSize: 16),
                           ),
                         ],
@@ -128,7 +129,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                   getTitlesWidget:
                                       (double value, TitleMeta meta) {
                                     const style = TextStyle(
-                                        color: Color.fromARGB(255, 70, 70, 70),
+                                        color: Color.fromARGB(255, 228, 227, 227),
                                         fontSize: 14);
                                     String text;
                                     switch (value.toInt()) {
@@ -270,7 +271,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 2000000000, dark),
                                       ],
-                                      color: Colors.orange,
+                                      color: graph1Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -281,7 +282,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 2000000000, dark),
                                       ],
-                                      color: Color.fromARGB(221, 0, 146, 17),
+                                      color: graph2Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -296,7 +297,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 11000000000, dark),
                                       ],
-                                      color: Colors.orange,
+                                      color: graph1Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -307,7 +308,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 2000000000, dark),
                                       ],
-                                      color: Color.fromARGB(221, 0, 146, 17),
+                                      color: graph2Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -322,7 +323,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 6000000000, dark),
                                       ],
-                                      color: Colors.orange,
+                                      color: graph1Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -333,7 +334,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 2000000000, dark),
                                       ],
-                                      color: Color.fromARGB(221, 0, 146, 17),
+                                      color: graph2Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -348,7 +349,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 1000000000.5, dark),
                                       ],
-                                      color: Colors.orange,
+                                      color: graph1Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -359,7 +360,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 2000000000, dark),
                                       ],
-                                      color: Color.fromARGB(221, 0, 146, 17),
+                                      color: graph2Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -374,7 +375,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 2000000000, dark),
                                       ],
-                                      color: Colors.orange,
+                                      color: graph1Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -385,7 +386,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 2000000000, dark),
                                       ],
-                                      color: Color.fromARGB(221, 0, 146, 17),
+                                      color: graph2Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -400,7 +401,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 11000000000, dark),
                                       ],
-                                      color: Colors.orange,
+                                      color: graph1Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -411,7 +412,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 2000000000, dark),
                                       ],
-                                      color: Color.fromARGB(221, 0, 146, 17),
+                                      color: graph2Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -426,7 +427,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 11000000000, dark),
                                       ],
-                                      color: Colors.orange,
+                                      color: graph1Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -436,7 +437,7 @@ class CovidBarChartState extends State<CovidBarChart> {
                                       rodStackItems: [
                                         // BarChartRodStackItem(0, 2000000000, dark),
                                       ],
-                                      color: Color.fromARGB(221, 0, 146, 17),
+                                      color: graph2Color,
                                       width: 10,
                                       borderRadius:
                                           const BorderRadius.all(Radius.zero)),
@@ -469,7 +470,7 @@ class CovidBarChartState extends State<CovidBarChart> {
         Container(
           width: 4.5,
           height: 20,
-          color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.4),
+          color: Color.fromARGB(255, 218, 218, 218).withOpacity(0.4),
         ),
         const SizedBox(
           width: 4.5,
@@ -477,7 +478,7 @@ class CovidBarChartState extends State<CovidBarChart> {
         Container(
           width: 4.5,
           height: 30,
-          color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.8),
+          color: Color.fromARGB(255, 255, 255, 255).withOpacity(0.8),
         ),
         const SizedBox(
           width: 4.5,
@@ -485,7 +486,7 @@ class CovidBarChartState extends State<CovidBarChart> {
         Container(
           width: 4.5,
           height: 20,
-          color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.4),
+          color: Color.fromARGB(255, 218, 218, 218).withOpacity(0.4),
         ),
         const SizedBox(
           width: 4.5,
