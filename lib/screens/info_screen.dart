@@ -55,7 +55,7 @@ class _InfoScreenState extends State<InfoScreen> {
           //เลื่อนไปแต่ละหมวดหมู่
           Container(
             padding: EdgeInsets.symmetric(horizontal: 25),
-            height: 60,
+            height: 50,
             child: SmoothPageIndicator(
               controller: pageController,
               count: strain.list.length,
@@ -63,7 +63,7 @@ class _InfoScreenState extends State<InfoScreen> {
                 dotDecoration: DotDecoration(
                   width: 8,
                   height: 8,
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Color.fromARGB(255, 126, 125, 126).withOpacity(0.5),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 activeDotDecoration: DotDecoration(
@@ -80,6 +80,7 @@ class _InfoScreenState extends State<InfoScreen> {
               onDotClicked: (index) => pageController.jumpToPage(index),
             ),
           ),
+          const SizedBox(height: 40),
         ]),
       ),
     );

@@ -52,6 +52,7 @@ class _StateScreenState extends State<StateScreen> {
                         CovidBarChart(),
                         SizedBox(height: 15),
                         LineChartDeath(),
+                        SizedBox(height: 70),
                       ],
                     ),
                   ),

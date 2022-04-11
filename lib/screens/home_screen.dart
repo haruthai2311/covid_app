@@ -200,7 +200,6 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 20),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
-    
               children: <Widget>[
                 YoutubePlayer(
                   //width: 350,
@@ -208,9 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   //showVideoProgressIndicator: true,
                   progressIndicatorColor: Colors.blueAccent,
                   ),
-                  
               ]
-              
             ),
             const SizedBox(height: 10),
             Center(
@@ -218,8 +215,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: const Text('ที่มา : YouTube ความรู้สู้ COVID-19🏥'),
                 onTap: () => launch('https://www.youtube.com/watch?v=0oMZf_ogKUk'),
               ),
-            )    
+            ),
+            const SizedBox(height: 70),
           ],
+          
         ),
       ),
     );
