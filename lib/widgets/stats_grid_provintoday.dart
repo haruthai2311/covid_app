@@ -152,20 +152,7 @@ class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
                           });
                         },
                       ),
-                      // DropdownButton(
-                      //   value: dropdownvalue,
-                      //   icon: const Icon(Icons.keyboard_arrow_down),
-                      //   items: items.map((String items) {
-                      //     return DropdownMenuItem(
-                      //         value: items, child: Text(items));
-                      //   }).toList(),
-                      //   onChanged: (newValue) {
-                      //     setState(() {
-                      //       dropdownvalue = newValue.toString();
-                      //       //print(items.indexOf(dropdownvalue)) ;
-                      //     });
-                      //   },
-                      // ),
+                     
                       Flexible(
                         child: Row(
                           children: <Widget>[
