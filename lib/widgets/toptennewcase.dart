@@ -74,15 +74,21 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
           return AspectRatio(
               aspectRatio: 0.62,
               child: Card(
-                
+                 semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
                   elevation: 4,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18)),
                   color: Color.fromARGB(255, 218, 199, 235),
+                  
+                 child:Container(
+                   decoration: const BoxDecoration(image: DecorationImage(fit: BoxFit.cover,image: AssetImage('assets/images/covidBgTable.jpg'))),
+                 
                   child: Padding(
                       padding: const EdgeInsets.only(top: 16.0),
                       child: Column(children:  <Widget>[
-                          Text(
+        
+                          const Text(
                                         '10 จังหวัด',
                                         style: TextStyle(
                                             color: Color.fromARGB(255, 0, 0, 0),
@@ -189,7 +195,7 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
 
                       ]),
                       
-                      )));
+                      ))));
         }
         return const LinearProgressIndicator();
       },
