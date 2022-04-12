@@ -2,6 +2,7 @@ import 'package:covid_app/widgets/covid_bar_chart.dart';
 import 'package:covid_app/widgets/linecharts.dart';
 import 'package:covid_app/widgets/stats_grid_provintoday.dart';
 import 'package:covid_app/widgets/stats_grid_today.dart';
+import 'package:covid_app/widgets/toptennewcase.dart';
 import 'package:flutter/material.dart';
 
 class StateScreen extends StatefulWidget {
@@ -58,7 +59,10 @@ class _StateScreenState extends State<StateScreen> {
                   SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [StatsGridProvinceToday()],
+                      children: const [
+                        StatsGridProvinceToday(),
+                        SizedBox(height: 10),
+                        TopTenNewcase(),],
                     ),
                   ),
                 ],
