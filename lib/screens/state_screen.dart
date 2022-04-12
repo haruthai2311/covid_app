@@ -63,7 +63,8 @@ class _StateScreenState extends State<StateScreen> {
                       children: const [
                         StatsGridProvinceToday(),
                         SizedBox(height: 10),
-                        TopTenNewcase(),],
+                        TopTenNewcase(),
+                        SizedBox(height: 70),],
                     ),
                   ),
                 ],

@@ -91,62 +91,101 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
                   color: Color.fromARGB(255, 218, 199, 235),
                   child: Padding(
                       padding: const EdgeInsets.only(top: 16.0),
-                      child: Column(children: <Widget>[
-                       
-                         Text(//วันที่
-                         
-                              result[casenewn.indexOf(topten[9])]
-                                      .txnDate
-                                      .day
-                                      .toString()
-                                      .padLeft(2, '0') +
-                                  '-' +
-                                  result[casenewn.indexOf(topten[9])]
-                                      .txnDate
-                                      .month
-                                      .toString()
-                                      .padLeft(2, '0') +
-                                  '-' +
-                                  result[casenewn.indexOf(topten[9])]
-                                      .txnDate
-                                      .year
-                                      .toString()
-                                      .padLeft(4, '0'),
-                                      textAlign: TextAlign.right,
+                      child: Column(children:  <Widget>[
+                          Text(
+                                        '10 จังหวัด',
+                                        style: TextStyle(
+                                            color: Color.fromARGB(255, 0, 0, 0),
+                                            fontSize: 26,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    
+                               
+                        Text(
+                              'ติดเชื้อใหม่สูงสุด วันที่ '+result[casenewn.indexOf(topten[9])]
+                                              .txnDate
+                                              .day
+                                              .toString()
+                                              .padLeft(2, '0') +
+                                          '-' +
+                                          result[casenewn.indexOf(topten[9])]
+                                              .txnDate
+                                              .month
+                                              .toString()
+                                              .padLeft(2, '0') +
+                                          '-' +
+                                          result[casenewn.indexOf(topten[9])]
+                                              .txnDate
+                                              .year
+                                              .toString()
+                                              .padLeft(4, '0'),
                               style: const TextStyle(
                                   color: Color.fromARGB(255, 220, 0, 0),
-                                  fontSize: 16),
+                                  fontSize: 18),
                             ),
-                            Column(
-                              children: [
-                                const SizedBox(
-                                    child: Text(
-                                      '10 จังหวัด',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(255, 0, 0, 0),
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                 
-                              ],
-                            ),
-                           
-                            const SizedBox(
-                              width: 4,
-                            ),
-                             
-                          
-                        const Text(
-                              'ติดเชื้อใหม่สูงสุด',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 220, 0, 0),
-                                  fontSize: 16),
-                            ),
-                            const SizedBox(
-                              width: 4,
-                            ),
-                      ]))));
+                          const SizedBox(height: 10),
+
+                          Row(
+                           children: [SizedBox(width: 15,),
+                              Column(children: [
+                                
+                                Text(
+                                  '1. '+ result[casenewn.indexOf(topten[9])].province.toString(),
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 220, 0, 0),
+                                      fontSize: 20),),
+                                Text(
+                                  '2. '+ result[casenewn.indexOf(topten[8])].province.toString(),
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 220, 0, 0),
+                                      fontSize: 20),),
+                                Text(
+                                  '3. '+ result[casenewn.indexOf(topten[7])].province.toString(),
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 220, 0, 0),
+                                      fontSize: 20),),
+                                Text(
+                                  '4. '+ result[casenewn.indexOf(topten[6])].province.toString(),
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 220, 0, 0),
+                                      fontSize: 20),),
+                                Text(
+                                  '5. '+ result[casenewn.indexOf(topten[5])].province.toString(),
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 220, 0, 0),
+                                      fontSize: 20),),
+                                Text(
+                                  '6. '+ result[casenewn.indexOf(topten[4])].province.toString(),
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 220, 0, 0),
+                                      fontSize: 20),),
+                                Text(
+                                  '7. '+ result[casenewn.indexOf(topten[3])].province.toString(),
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 220, 0, 0),
+                                      fontSize: 20),),
+                                Text(
+                                  '8. '+ result[casenewn.indexOf(topten[2])].province.toString(),
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 220, 0, 0),
+                                      fontSize: 20),),
+                                Text(
+                                  '9. '+ result[casenewn.indexOf(topten[1])].province.toString(),
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 220, 0, 0),
+                                      fontSize: 20),),
+                                Text(
+                                  '10. '+ result[casenewn.indexOf(topten[0])].province.toString(),
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 220, 0, 0),
+                                      fontSize: 20),),
+                                    ]),
+                            ],
+                          ),
+
+                      ]),
+                      
+                      )));
         }
         return const LinearProgressIndicator();
       },
