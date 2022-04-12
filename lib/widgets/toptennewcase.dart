@@ -22,10 +22,8 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
   Future<List<CovidToDayProvinces>> getDataProvin() async {
     var response = await http.get(Uri.parse(
         'https://covid19.ddc.moph.go.th/api/Cases/today-cases-by-provinces'));
-    //print(response.body);
     _dataFromAPIProvin =
         covidToDayProvincesFromJson(response.body).cast<CovidToDayProvinces>();
-    // print(_dataFromAPIProvin);
 
     return _dataFromAPIProvin;
   }
@@ -54,21 +52,17 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
 
           var casenew = [];
           for (var i = 0; i < result.length; i++) {
-            //print(result[i].newCase);
             casenew.add(result[i].newCase);
-            //print(casenewsort);
             casenew.sort();
-            //print(casenew);
-
           }
-          print(casenew);
+          //print(casenew);
 
           var topten = [];
           for (int i = casenew.length - 10; i < casenew.length; i++) {
             topten.add(casenew[i]);
           }
-          print(topten);
-          print(casenewn.indexOf(topten[9]));
+          //print(topten);
+          //print(casenewn.indexOf(topten[9]));
 
           return AspectRatio(
               aspectRatio: 0.62,
@@ -78,7 +72,7 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
                   elevation: 4,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18)),
-                  color: Color.fromARGB(255, 218, 199, 235),
+                  color: const Color.fromARGB(255, 218, 199, 235),
                   child: Container(
                       decoration: const BoxDecoration(
                           image: DecorationImage(

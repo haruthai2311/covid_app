@@ -17,7 +17,6 @@ class _InfoScreenState extends State<InfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -69,7 +68,7 @@ class _InfoScreenState extends State<InfoScreen> {
                     height: 10,
                     color: kBackground,
                     borderRadius: BorderRadius.circular(10),
-                    dotBorder: DotBorder(
+                    dotBorder: const DotBorder(
                       color: kPrimaryColor,
                       padding: 2,
                       width: 2,

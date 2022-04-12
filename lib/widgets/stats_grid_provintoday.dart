@@ -102,10 +102,8 @@ class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
   Future<List<CovidToDayProvinces>> getDataProvin() async {
     var response = await http.get(Uri.parse(
         'https://covid19.ddc.moph.go.th/api/Cases/today-cases-by-provinces'));
-    print(response.body);
     _dataFromAPIProvin =
         covidToDayProvincesFromJson(response.body).cast<CovidToDayProvinces>();
-    print(_dataFromAPIProvin);
     return _dataFromAPIProvin;
   }
 

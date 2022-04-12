@@ -38,20 +38,14 @@ class CovidBarChartState extends State<CovidBarChart> {
   }
 
   Future<List<CovidTimeline>> getDataTimeline() async {
-    print('get data');
-    //var url = 'https://covid19.ddc.moph.go.th/api/Cases/timeline-cases-all';
+    //print('get data');
     var response = await http.get(Uri.parse(
         'https://covid19.ddc.moph.go.th/api/Cases/timeline-cases-all'));
-    //_dataFromAPI = covidToDayFromJson(response.body);
-    //return _dataFromAPI;
-    print(response.body);
-    _dataFromAPITimeline = covidTimelineFromJson(response.body);
-    print(_dataFromAPITimeline);
 
+    //print(response.body);
+    _dataFromAPITimeline = covidTimelineFromJson(response.body);
     return _dataFromAPITimeline;
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -60,401 +54,374 @@ class CovidBarChartState extends State<CovidBarChart> {
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             var result = snapshot.data;
-            //print(result.length);
             var index = result.length - 1;
             return AspectRatio(
-              aspectRatio: 1.00,
-              child: Card(
-                elevation: 4,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18)),
-                color: Color.fromARGB(255, 89, 80, 97),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          // ส่วนหัว Bar chart
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          makeTransactionsIcon(),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          const Text(
-                            'New Case',
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 255, 51, 51),
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          const Text(
-                            'Last 1 week',
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 245, 189, 84),
-                                fontSize: 16),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      // บอกชื่อกราฟแต่ละแท่ง
-                      LegendsListWidget(
-                        legends: [
-                          Legend("New case", newCase),
-                          Legend("Recovered", recovered),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      // ส่วน Bar chart
-                      Expanded(
-                        child: BarChart(
-                          BarChartData(
-                            alignment: BarChartAlignment.center,
-                            barTouchData: BarTouchData(
-                              enabled: false,
+                aspectRatio: 1.00,
+                child: Card(
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18)),
+                  color: const Color.fromARGB(255, 89, 80, 97),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 16.0),
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            // ส่วนหัว Bar chart
+                            const SizedBox(
+                              width: 20,
                             ),
-                            titlesData: FlTitlesData(
-                              show: true,
-                              bottomTitles: AxisTitles(
-                                sideTitles: SideTitles(
-                                  showTitles: true,
-                                  reservedSize: 28,
-                                  //แกน x
-                                  getTitlesWidget:
-                                      (double value, TitleMeta meta) {
-                                    const style = TextStyle(
-                                        color: Color.fromARGB(255, 228, 227, 227),
-                                        fontSize: 14);
-                                    String text;
-                                    switch (value.toInt()) {
-                                      case 0:
-                                        text = result[index - 6]
-                                                .txnDate
-                                                .day
-                                                .toString()
-                                                .padLeft(2, '0') +
-                                            '-' +
-                                            result[index - 6]
-                                                .txnDate
-                                                .month
-                                                .toString()
-                                                .padLeft(2, '0');
-                                        break;
-                                      case 1:
-                                        text = result[index - 5]
-                                                .txnDate
-                                                .day
-                                                .toString()
-                                                .padLeft(2, '0') +
-                                            '-' +
-                                            result[index - 5]
-                                                .txnDate
-                                                .month
-                                                .toString()
-                                                .padLeft(2, '0');
-                                        break;
-                                      case 2:
-                                        text = result[index - 4]
-                                                .txnDate
-                                                .day
-                                                .toString()
-                                                .padLeft(2, '0') +
-                                            '-' +
-                                            result[index - 4]
-                                                .txnDate
-                                                .month
-                                                .toString()
-                                                .padLeft(2, '0');
-                                        break;
-                                      case 3:
-                                        text = result[index - 3]
-                                                .txnDate
-                                                .day
-                                                .toString()
-                                                .padLeft(2, '0') +
-                                            '-' +
-                                            result[index - 3]
-                                                .txnDate
-                                                .month
-                                                .toString()
-                                                .padLeft(2, '0');
-                                        break;
-                                      case 4:
-                                        text = result[index - 2]
-                                                .txnDate
-                                                .day
-                                                .toString()
-                                                .padLeft(2, '0') +
-                                            '-' +
-                                            result[index - 2]
-                                                .txnDate
-                                                .month
-                                                .toString()
-                                                .padLeft(2, '0');
-                                        break;
-                                      case 5:
-                                        text = result[index - 1]
-                                                .txnDate
-                                                .day
-                                                .toString()
-                                                .padLeft(2, '0') +
-                                            '-' +
-                                            result[index - 1]
-                                                .txnDate
-                                                .month
-                                                .toString()
-                                                .padLeft(2, '0');
-                                        break;
-                                      case 6:
-                                        text = result[index]
-                                                .txnDate
-                                                .day
-                                                .toString()
-                                                .padLeft(2, '0') +
-                                            '-' +
-                                            result[index]
-                                                .txnDate
-                                                .month
-                                                .toString()
-                                                .padLeft(2, '0');
-                                        break;
-                                      default:
-                                        text = '';
-                                        break;
-                                    }
-                                    return Center(
-                                        child: Text(text, style: style));
-                                  },
+                            makeTransactionsIcon(),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            const Text(
+                              'New Case',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 255, 51, 51),
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            const Text(
+                              'Last 1 week',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 245, 189, 84),
+                                  fontSize: 16),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        // บอกชื่อกราฟแต่ละแท่ง
+                        LegendsListWidget(
+                          legends: [
+                            Legend("New case", newCase),
+                            Legend("Recovered", recovered),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        // ส่วน Bar chart
+                        Expanded(
+                          child: BarChart(
+                            BarChartData(
+                              alignment: BarChartAlignment.center,
+                              barTouchData: BarTouchData(
+                                enabled: false,
+                              ),
+                              titlesData: FlTitlesData(
+                                show: true,
+                                bottomTitles: AxisTitles(
+                                  sideTitles: SideTitles(
+                                    showTitles: true,
+                                    reservedSize: 28,
+                                    //แกน x
+                                    getTitlesWidget:
+                                        (double value, TitleMeta meta) {
+                                      const style = TextStyle(
+                                          color: Color.fromARGB(
+                                              255, 228, 227, 227),
+                                          fontSize: 14);
+                                      String text;
+                                      switch (value.toInt()) {
+                                        case 0:
+                                          text = result[index - 6]
+                                                  .txnDate
+                                                  .day
+                                                  .toString()
+                                                  .padLeft(2, '0') +
+                                              '-' +
+                                              result[index - 6]
+                                                  .txnDate
+                                                  .month
+                                                  .toString()
+                                                  .padLeft(2, '0');
+                                          break;
+                                        case 1:
+                                          text = result[index - 5]
+                                                  .txnDate
+                                                  .day
+                                                  .toString()
+                                                  .padLeft(2, '0') +
+                                              '-' +
+                                              result[index - 5]
+                                                  .txnDate
+                                                  .month
+                                                  .toString()
+                                                  .padLeft(2, '0');
+                                          break;
+                                        case 2:
+                                          text = result[index - 4]
+                                                  .txnDate
+                                                  .day
+                                                  .toString()
+                                                  .padLeft(2, '0') +
+                                              '-' +
+                                              result[index - 4]
+                                                  .txnDate
+                                                  .month
+                                                  .toString()
+                                                  .padLeft(2, '0');
+                                          break;
+                                        case 3:
+                                          text = result[index - 3]
+                                                  .txnDate
+                                                  .day
+                                                  .toString()
+                                                  .padLeft(2, '0') +
+                                              '-' +
+                                              result[index - 3]
+                                                  .txnDate
+                                                  .month
+                                                  .toString()
+                                                  .padLeft(2, '0');
+                                          break;
+                                        case 4:
+                                          text = result[index - 2]
+                                                  .txnDate
+                                                  .day
+                                                  .toString()
+                                                  .padLeft(2, '0') +
+                                              '-' +
+                                              result[index - 2]
+                                                  .txnDate
+                                                  .month
+                                                  .toString()
+                                                  .padLeft(2, '0');
+                                          break;
+                                        case 5:
+                                          text = result[index - 1]
+                                                  .txnDate
+                                                  .day
+                                                  .toString()
+                                                  .padLeft(2, '0') +
+                                              '-' +
+                                              result[index - 1]
+                                                  .txnDate
+                                                  .month
+                                                  .toString()
+                                                  .padLeft(2, '0');
+                                          break;
+                                        case 6:
+                                          text = result[index]
+                                                  .txnDate
+                                                  .day
+                                                  .toString()
+                                                  .padLeft(2, '0') +
+                                              '-' +
+                                              result[index]
+                                                  .txnDate
+                                                  .month
+                                                  .toString()
+                                                  .padLeft(2, '0');
+                                          break;
+                                        default:
+                                          text = '';
+                                          break;
+                                      }
+                                      return Center(
+                                          child: Text(text, style: style));
+                                    },
+                                  ),
+                                ),
+                                leftTitles: AxisTitles(
+                                  sideTitles: SideTitles(
+                                    showTitles: true,
+                                    reservedSize: 40,
+                                    getTitlesWidget: leftTitles,
+                                  ),
+                                ),
+                                topTitles: AxisTitles(
+                                  sideTitles: SideTitles(showTitles: false),
+                                ),
+                                rightTitles: AxisTitles(
+                                  sideTitles: SideTitles(showTitles: false),
                                 ),
                               ),
-                              leftTitles: AxisTitles(
-                                sideTitles: SideTitles(
-                                  showTitles: true,
-                                  reservedSize: 40,
-                                  getTitlesWidget: leftTitles,
+                              gridData: FlGridData(
+                                show: true,
+                                checkToShowHorizontalLine: (value) =>
+                                    value % 10 == 0,
+                                getDrawingHorizontalLine: (value) => FlLine(
+                                  color: Color.fromARGB(255, 215, 214, 214),
+                                  strokeWidth: 1,
                                 ),
+                                drawVerticalLine: false,
                               ),
-                              topTitles: AxisTitles(
-                                sideTitles: SideTitles(showTitles: false),
+                              borderData: FlBorderData(
+                                show: false,
                               ),
-                              rightTitles: AxisTitles(
-                                sideTitles: SideTitles(showTitles: false),
-                              ),
+                              groupsSpace: 28,
+                              barGroups: [
+                                BarChartGroupData(
+                                  x: 0,
+                                  barsSpace: 1,
+                                  barRods: [
+                                    BarChartRodData(
+                                        toY: result[index - 6]
+                                            .newCase
+                                            .toDouble(),
+                                        color: graph1Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                    BarChartRodData(
+                                        toY: result[index - 6]
+                                            .newRecovered
+                                            .toDouble(),
+                                        color: graph2Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                  ],
+                                ),
+                                BarChartGroupData(
+                                  x: 1,
+                                  barsSpace: 1,
+                                  barRods: [
+                                    BarChartRodData(
+                                        toY: result[index - 5]
+                                            .newCase
+                                            .toDouble(),
+                                        color: graph1Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                    BarChartRodData(
+                                        toY: result[index - 5]
+                                            .newRecovered
+                                            .toDouble(),
+                                        color: graph2Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                  ],
+                                ),
+                                BarChartGroupData(
+                                  x: 2,
+                                  barsSpace: 1,
+                                  barRods: [
+                                    BarChartRodData(
+                                        toY: result[index - 4]
+                                            .newCase
+                                            .toDouble(),
+                                        color: graph1Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                    BarChartRodData(
+                                        toY: result[index - 4]
+                                            .newRecovered
+                                            .toDouble(),
+                                        color: graph2Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                  ],
+                                ),
+                                BarChartGroupData(
+                                  x: 3,
+                                  barsSpace: 1,
+                                  barRods: [
+                                    BarChartRodData(
+                                        toY: result[index - 3]
+                                            .newCase
+                                            .toDouble(),
+                                        color: graph1Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                    BarChartRodData(
+                                        toY: result[index - 3]
+                                            .newRecovered
+                                            .toDouble(),
+                                        color: graph2Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                  ],
+                                ),
+                                BarChartGroupData(
+                                  x: 4,
+                                  barsSpace: 1,
+                                  barRods: [
+                                    BarChartRodData(
+                                        toY: result[index - 2]
+                                            .newCase
+                                            .toDouble(),
+                                        color: graph1Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                    BarChartRodData(
+                                        toY: result[index - 2]
+                                            .newRecovered
+                                            .toDouble(),
+                                        color: graph2Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                  ],
+                                ),
+                                BarChartGroupData(
+                                  x: 5,
+                                  barsSpace: 1,
+                                  barRods: [
+                                    BarChartRodData(
+                                        toY: result[index - 1]
+                                            .newCase
+                                            .toDouble(),
+                                        color: graph1Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                    BarChartRodData(
+                                        toY: result[index - 1]
+                                            .newRecovered
+                                            .toDouble(),
+                                        color: graph2Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                  ],
+                                ),
+                                BarChartGroupData(
+                                  x: 6,
+                                  barsSpace: 1,
+                                  barRods: [
+                                    BarChartRodData(
+                                        toY: result[index].newCase.toDouble(),
+                                        color: graph1Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                    BarChartRodData(
+                                        toY: result[index]
+                                            .newRecovered
+                                            .toDouble(),
+                                        color: graph2Color,
+                                        width: 10,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.zero)),
+                                  ],
+                                ),
+                              ],
                             ),
-                            gridData: FlGridData(
-                              show: true,
-                              checkToShowHorizontalLine: (value) =>
-                                  value % 10 == 0,
-                              getDrawingHorizontalLine: (value) => FlLine(
-                                color: Color.fromARGB(255, 215, 214, 214),
-                                strokeWidth: 1,
-                              ),
-                              drawVerticalLine: false,
-                            ),
-                            borderData: FlBorderData(
-                              show: false,
-                            ),
-                            groupsSpace: 28,
-                            barGroups: [
-                              BarChartGroupData(
-                                x: 0,
-                                barsSpace: 1,
-                                barRods: [
-                                  BarChartRodData(
-                                      toY: result[index - 6].newCase.toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 2000000000, dark),
-                                      ],
-                                      color: graph1Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                  BarChartRodData(
-                                      toY: result[index - 6]
-                                          .newRecovered
-                                          .toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 2000000000, dark),
-                                      ],
-                                      color: graph2Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                ],
-                              ),
-                              BarChartGroupData(
-                                x: 1,
-                                barsSpace: 1,
-                                barRods: [
-                                  BarChartRodData(
-                                      toY: result[index - 5].newCase.toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 11000000000, dark),
-                                      ],
-                                      color: graph1Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                  BarChartRodData(
-                                      toY: result[index - 5]
-                                          .newRecovered
-                                          .toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 2000000000, dark),
-                                      ],
-                                      color: graph2Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                ],
-                              ),
-                              BarChartGroupData(
-                                x: 2,
-                                barsSpace: 1,
-                                barRods: [
-                                  BarChartRodData(
-                                      toY: result[index - 4].newCase.toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 6000000000, dark),
-                                      ],
-                                      color: graph1Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                  BarChartRodData(
-                                      toY: result[index - 4]
-                                          .newRecovered
-                                          .toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 2000000000, dark),
-                                      ],
-                                      color: graph2Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                ],
-                              ),
-                              BarChartGroupData(
-                                x: 3,
-                                barsSpace: 1,
-                                barRods: [
-                                  BarChartRodData(
-                                      toY: result[index - 3].newCase.toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 1000000000.5, dark),
-                                      ],
-                                      color: graph1Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                  BarChartRodData(
-                                      toY: result[index - 3]
-                                          .newRecovered
-                                          .toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 2000000000, dark),
-                                      ],
-                                      color: graph2Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                ],
-                              ),
-                              BarChartGroupData(
-                                x: 4,
-                                barsSpace: 1,
-                                barRods: [
-                                  BarChartRodData(
-                                      toY: result[index - 2].newCase.toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 2000000000, dark),
-                                      ],
-                                      color: graph1Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                  BarChartRodData(
-                                      toY: result[index - 2]
-                                          .newRecovered
-                                          .toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 2000000000, dark),
-                                      ],
-                                      color: graph2Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                ],
-                              ),
-                              BarChartGroupData(
-                                x: 5,
-                                barsSpace: 1,
-                                barRods: [
-                                  BarChartRodData(
-                                      toY: result[index - 1].newCase.toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 11000000000, dark),
-                                      ],
-                                      color: graph1Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                  BarChartRodData(
-                                      toY: result[index - 1]
-                                          .newRecovered
-                                          .toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 2000000000, dark),
-                                      ],
-                                      color: graph2Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                ],
-                              ),
-                              BarChartGroupData(
-                                x: 6,
-                                barsSpace: 1,
-                                barRods: [
-                                  BarChartRodData(
-                                      toY: result[index].newCase.toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 11000000000, dark),
-                                      ],
-                                      color: graph1Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                  BarChartRodData(
-                                      toY:
-                                          result[index].newRecovered.toDouble(),
-                                      rodStackItems: [
-                                        // BarChartRodStackItem(0, 2000000000, dark),
-                                      ],
-                                      color: graph2Color,
-                                      width: 10,
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.zero)),
-                                ],
-                              ),
-                            ],
                           ),
                         ),
-                      ),Text(
-                            '1 week (Day-Month)',
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                fontSize: 15),
-                          ),SizedBox(height: 5),
-                    ], 
-                ),
-              ),
-            ));
+                        const Text(
+                          '1 week (Day-Month)',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontSize: 15),
+                        ),
+                        const SizedBox(height: 5),
+                      ],
+                    ),
+                  ),
+                ));
           }
           return const LinearProgressIndicator(
             color: Colors.grey,
@@ -474,7 +441,7 @@ class CovidBarChartState extends State<CovidBarChart> {
         Container(
           width: 4.5,
           height: 20,
-          color: Color.fromARGB(255, 218, 218, 218).withOpacity(0.4),
+          color: const Color.fromARGB(255, 218, 218, 218).withOpacity(0.4),
         ),
         const SizedBox(
           width: 4.5,
@@ -482,7 +449,7 @@ class CovidBarChartState extends State<CovidBarChart> {
         Container(
           width: 4.5,
           height: 30,
-          color: Color.fromARGB(255, 255, 255, 255).withOpacity(0.8),
+          color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.8),
         ),
         const SizedBox(
           width: 4.5,
@@ -490,7 +457,7 @@ class CovidBarChartState extends State<CovidBarChart> {
         Container(
           width: 4.5,
           height: 20,
-          color: Color.fromARGB(255, 218, 218, 218).withOpacity(0.4),
+          color: const Color.fromARGB(255, 218, 218, 218).withOpacity(0.4),
         ),
         const SizedBox(
           width: 4.5,
@@ -499,4 +466,3 @@ class CovidBarChartState extends State<CovidBarChart> {
     );
   }
 }
-

@@ -7,7 +7,7 @@ class CovidListView extends StatelessWidget {
   final Function callback;
   final PageController pageController;
   final Strain strain;
-  CovidListView(
+  const CovidListView(
       this.selected, this.callback, this.pageController, this.strain);
 
   @override
@@ -15,7 +15,7 @@ class CovidListView extends StatelessWidget {
     final category = strain.list.keys.toList();
     
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: PageView(
         controller: pageController,
         onPageChanged: (index) => callback(index),
@@ -24,7 +24,7 @@ class CovidListView extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 itemBuilder: (context, index) =>
                     CovidItem(strain.list[category[selected]]![index]),
-                separatorBuilder: (_, index) => SizedBox(height: 15),
+                separatorBuilder: (_, index) => const SizedBox(height: 15),
                 itemCount: strain.list[category[selected]]!.length))
             .toList(),
       ),

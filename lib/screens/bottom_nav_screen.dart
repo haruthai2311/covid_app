@@ -42,7 +42,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
               animationDuration: Duration(milliseconds: 400),
               index: _currentIndex,
               onTap: (index) => setState(() => _currentIndex = index),
-              items: <Widget>[
+              items: const <Widget>[
                 Icon(Icons.home, size: 30),
                 Icon(Icons.event_note_rounded, size: 30),
                 Icon(Icons.call, size: 30),

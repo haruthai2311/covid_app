@@ -19,15 +19,9 @@ class _StatsGridToday extends State<StatsGridToday> {
   }
 
   Future<List<CovidToDay>> getData() async {
-    print('get data');
-    //var url = 'https://covid19.ddc.moph.go.th/api/Cases/today-cases-all';
     var response = await http.get(
         Uri.parse('https://covid19.ddc.moph.go.th/api/Cases/today-cases-all'));
-    //_dataFromAPI = covidToDayFromJson(response.body);
-    //return _dataFromAPI;
-    print(response.body);
     _dataFromAPI = covidToDayFromJson(response.body);
-    print(_dataFromAPI);
     return _dataFromAPI;
   }
 
@@ -38,7 +32,7 @@ class _StatsGridToday extends State<StatsGridToday> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: SizedBox( //Container
+      child: SizedBox( 
           height: MediaQuery.of(context).size.height * 0.30,
           child: FutureBuilder(
               future: getData(),
