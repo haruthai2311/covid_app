@@ -125,63 +125,85 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
                             ),
                           const SizedBox(height: 10),
 
-                          Row(
-                           children: [SizedBox(width: 15,),
-                              Column(children: [
-                                
-                                Text(
-                                  '1. '+ result[casenewn.indexOf(topten[9])].province.toString(),
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 220, 0, 0),
-                                      fontSize: 20),),
-                                Text(
-                                  '2. '+ result[casenewn.indexOf(topten[8])].province.toString(),
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 220, 0, 0),
-                                      fontSize: 20),),
-                                Text(
-                                  '3. '+ result[casenewn.indexOf(topten[7])].province.toString(),
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 220, 0, 0),
-                                      fontSize: 20),),
-                                Text(
-                                  '4. '+ result[casenewn.indexOf(topten[6])].province.toString(),
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 220, 0, 0),
-                                      fontSize: 20),),
-                                Text(
-                                  '5. '+ result[casenewn.indexOf(topten[5])].province.toString(),
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 220, 0, 0),
-                                      fontSize: 20),),
-                                Text(
-                                  '6. '+ result[casenewn.indexOf(topten[4])].province.toString(),
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 220, 0, 0),
-                                      fontSize: 20),),
-                                Text(
-                                  '7. '+ result[casenewn.indexOf(topten[3])].province.toString(),
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 220, 0, 0),
-                                      fontSize: 20),),
-                                Text(
-                                  '8. '+ result[casenewn.indexOf(topten[2])].province.toString(),
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 220, 0, 0),
-                                      fontSize: 20),),
-                                Text(
-                                  '9. '+ result[casenewn.indexOf(topten[1])].province.toString(),
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 220, 0, 0),
-                                      fontSize: 20),),
-                                Text(
-                                  '10. '+ result[casenewn.indexOf(topten[0])].province.toString(),
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 220, 0, 0),
-                                      fontSize: 20),),
-                                    ]),
+                          DataTable(
+                            columns: [
+                              DataColumn(label: Text('จังหวัด')),
+                              DataColumn(label: Text('ติดเชื้อรายใหม่')),
+                              DataColumn(label: Text('สะสม'))
+                            ],
+                            rows: [
+                              DataRow(cells: [
+                                  DataCell(Text('1.' + result[casenewn.indexOf(topten[9])].province.toString())),
+                                  DataCell(Text('20')),
+                                  DataCell(Text('20')),
+                                ]
+                              ),
+                              DataRow(cells: [
+                                DataCell(Text('2.' + result[casenewn.indexOf(topten[8])].province.toString())),
+                                DataCell(Text('30')),
+                                DataCell(Text('30')),
+                              ]
+                              )
                             ],
                           ),
+
+                          // Row(
+                          //  children: [SizedBox(width: 15,),
+                          //     Column(children: [
+                                
+                          //       Text(
+                          //         '1. '+ result[casenewn.indexOf(topten[9])].province.toString(),
+                          //         style: const TextStyle(
+                          //             color: Color.fromARGB(255, 220, 0, 0),
+                          //             fontSize: 20),),
+                          //       Text(
+                          //         '2. '+ result[casenewn.indexOf(topten[8])].province.toString(),
+                          //         style: const TextStyle(
+                          //             color: Color.fromARGB(255, 220, 0, 0),
+                          //             fontSize: 20),),
+                          //       Text(
+                          //         '3. '+ result[casenewn.indexOf(topten[7])].province.toString(),
+                          //         style: const TextStyle(
+                          //             color: Color.fromARGB(255, 220, 0, 0),
+                          //             fontSize: 20),),
+                          //       Text(
+                          //         '4. '+ result[casenewn.indexOf(topten[6])].province.toString(),
+                          //         style: const TextStyle(
+                          //             color: Color.fromARGB(255, 220, 0, 0),
+                          //             fontSize: 20),),
+                          //       Text(
+                          //         '5. '+ result[casenewn.indexOf(topten[5])].province.toString(),
+                          //         style: const TextStyle(
+                          //             color: Color.fromARGB(255, 220, 0, 0),
+                          //             fontSize: 20),),
+                          //       Text(
+                          //         '6. '+ result[casenewn.indexOf(topten[4])].province.toString(),
+                          //         style: const TextStyle(
+                          //             color: Color.fromARGB(255, 220, 0, 0),
+                          //             fontSize: 20),),
+                          //       Text(
+                          //         '7. '+ result[casenewn.indexOf(topten[3])].province.toString(),
+                          //         style: const TextStyle(
+                          //             color: Color.fromARGB(255, 220, 0, 0),
+                          //             fontSize: 20),),
+                          //       Text(
+                          //         '8. '+ result[casenewn.indexOf(topten[2])].province.toString(),
+                          //         style: const TextStyle(
+                          //             color: Color.fromARGB(255, 220, 0, 0),
+                          //             fontSize: 20),),
+                          //       Text(
+                          //         '9. '+ result[casenewn.indexOf(topten[1])].province.toString(),
+                          //         style: const TextStyle(
+                          //             color: Color.fromARGB(255, 220, 0, 0),
+                          //             fontSize: 20),),
+                          //       Text(
+                          //         '10. '+ result[casenewn.indexOf(topten[0])].province.toString(),
+                          //         style: const TextStyle(
+                          //             color: Color.fromARGB(255, 220, 0, 0),
+                          //             fontSize: 20),),
+                          //           ]),
+                          //   ],
+                          // ),
 
                       ]),
                       
