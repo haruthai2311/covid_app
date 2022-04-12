@@ -2,9 +2,9 @@ import 'package:covid_app/models/info_covid.dart';
 
 class Strain {
   Map<String, List<Covid>> list;
-  Strain(
-    this.list,
-  );
+
+  Strain(this.list);
+
   static Strain generateButton() {
     return Strain(
       {

@@ -17,7 +17,8 @@ class _InfoScreenState extends State<InfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
+    //final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 144, 90, 231),
@@ -28,18 +29,15 @@ class _InfoScreenState extends State<InfoScreen> {
       ),
       body: Scaffold(
         backgroundColor: kBackground,
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-          //แสดงหมวดหมู่
+        body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           CovidList(selected, (int index) {
             setState(() {
-              selected = index;
-            });
+                selected = index;
+              },
+            );
             pageController.jumpToPage(index);
           }, strain),
 
-          //แสดงรายละเอียดแต่ละสายพันธุ์
           Expanded(
             child: CovidListView(
               selected,
@@ -52,7 +50,7 @@ class _InfoScreenState extends State<InfoScreen> {
               strain,
             ),
           ),
-          //เลื่อนไปแต่ละหมวดหมู่
+          
           Container(
             padding: EdgeInsets.symmetric(horizontal: 25),
             height: 50,
