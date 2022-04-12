@@ -92,24 +92,9 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
                   child: Padding(
                       padding: const EdgeInsets.only(top: 16.0),
                       child: Column(children: <Widget>[
-                         const SizedBox(
-                              width: 20,
-                            ),
-                            const SizedBox(
-                                child: Text(
-                                  '10 จังหวัด',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 0, 0, 0),
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                           
-                            const SizedBox(
-                              width: 4,
-                            ),
-                             SizedBox(
-                               child: Text(//วันที่
+                       
+                         Text(//วันที่
+                         
                               result[casenewn.indexOf(topten[9])]
                                       .txnDate
                                       .day
@@ -131,7 +116,26 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
                               style: const TextStyle(
                                   color: Color.fromARGB(255, 220, 0, 0),
                                   fontSize: 16),
-                            ),),
+                            ),
+                            Column(
+                              children: [
+                                const SizedBox(
+                                    child: Text(
+                                      '10 จังหวัด',
+                                      style: TextStyle(
+                                          color: Color.fromARGB(255, 0, 0, 0),
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                 
+                              ],
+                            ),
+                           
+                            const SizedBox(
+                              width: 4,
+                            ),
+                             
                           
                         const Text(
                               'ติดเชื้อใหม่สูงสุด',
