@@ -250,6 +250,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                 },
               ),
             ),
+            const SizedBox(height: 50),
           ],
         ),
       ),

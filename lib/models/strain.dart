@@ -8,12 +8,12 @@ class Strain {
   static Strain generateButton() {
     return Strain(
       {
-        'สายพันธ์อันตราย': Covid.generateButton1(),
-        'โอไมครอน': Covid.generateButton2(),
-        'เดลต้า': Covid.generateButton3(),
-        'แลมบ์ดา': Covid.generateButton4(),
-        'อัลฟ่า': Covid.generateButton5(),
-        'เบต้า': Covid.generateButton6(),
+        'สายพันธุ์ Covid 19': Covid.generateBT_Strain(),
+        'โอไมครอน': Covid.generateBT_Omicron(),
+        'เดลต้า': Covid.generateBT_Delta(),
+        'แลมบ์ดา': Covid.generateBT_Lampda(),
+        'อัลฟ่า': Covid.generateBT_Alpha(),
+        'เบต้า': Covid.generateBT_Beta(),
       },
     );
   }

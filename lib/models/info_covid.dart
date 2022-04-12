@@ -7,7 +7,7 @@ class Covid {
   Covid(this.name, this.imgUrl, this.about, {this.hightLight = false});
 
   //รายการอาหาร
-  static List<Covid> generateButton1() {
+  static List<Covid> generateBT_Strain() {
     return [
       Covid('สายพันธุ์อันตรายในไทย',
       'assets/images/4covid.png',
@@ -51,7 +51,7 @@ class Covid {
     ];
   }
 
-  static List<Covid> generateButton2() {
+  static List<Covid> generateBT_Omicron() {
     return [
       Covid(
         'สายพันธุ์โอไมครอน (Omicron)',
@@ -66,7 +66,7 @@ class Covid {
     ];
   }
 
-  static List<Covid> generateButton3() {
+  static List<Covid> generateBT_Delta() {
     return [
       Covid(
         'สายพันธุ์เดลต้า (Delta)',
@@ -81,7 +81,7 @@ class Covid {
     ];
   }
 
-  static List<Covid> generateButton4() {
+  static List<Covid> generateBT_Lampda() {
     return [
       Covid(
         'สายพันธุ์แลมบ์ดา (Lampda)',
@@ -91,17 +91,17 @@ class Covid {
     ];
   }
 
-  static List<Covid> generateButton5() {
+  static List<Covid> generateBT_Alpha() {
     return [
       Covid(
-        'สายพันธุ์อัลฟ่า',
+        'สายพันธุ์อัลฟ่า (Alpha)',
         'assets/images/Alpha.jpg',
         '   สำหรับโควิดสายพันธุ์อัลฟ่า พบการติดเชื้อในประเทศไทยครั้งแรกเมื่อวันที่ 3 มกราคม 2564 โดยนายแพทย์ศุภกิจ ศิริลักษณ์ อธิบดีกรมวิทยาศาสตร์การแพทย์ เปิดเผยข้อมูลการรายงานขององค์กรสาธารณสุขประเทศอังกฤษ (Public Health England) และองค์การอนามัยโลก (WHO) พบว่าสายพันธุ์อัลฟ่า (อังกฤษ) เป็นสายพันธุ์ที่มีการแพร่กระจายเชื้อได้ง่ายกว่าสายพันธุ์ดั้งเดิมถึง 1.7 เท่า',
       ),
     ];
   }
 
-  static List<Covid> generateButton6() {
+  static List<Covid> generateBT_Beta() {
     return [
       Covid(
         'สายพันธุ์เบต้า (Beta)',
