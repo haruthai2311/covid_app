@@ -19,18 +19,7 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
     getDataProvin();
   }
 
-  // Future<List<CovidToDay>> getData() async{
-  //   print('get data');
-  //   //var url = 'https://covid19.ddc.moph.go.th/api/Cases/today-cases-all';
-  //   var response = await http.get(Uri.parse('https://covid19.ddc.moph.go.th/api/Cases/today-cases-all'));
-  //   //_dataFromAPI = covidToDayFromJson(response.body);
-  //   //return _dataFromAPI;
-  //   print(response.body);
-  //   _dataFromAPI = covidToDayFromJson(response.body);
-  //   print(_dataFromAPI);
-  //   return _dataFromAPI;
-  // }
-
+  
   Future<List<CovidToDayProvinces>> getDataProvin() async {
     var response = await http.get(Uri.parse(
         'https://covid19.ddc.moph.go.th/api/Cases/today-cases-by-provinces'));
@@ -83,8 +72,9 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
           print(casenewn.indexOf(topten[9]));
 
           return AspectRatio(
-              aspectRatio: 1.00,
+              aspectRatio: 0.62,
               child: Card(
+                
                   elevation: 4,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18)),
@@ -126,84 +116,76 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
                           const SizedBox(height: 10),
 
                           DataTable(
-                            columns: [
-                              DataColumn(label: Text('จังหวัด')),
-                              DataColumn(label: Text('ติดเชื้อรายใหม่')),
-                              DataColumn(label: Text('สะสม'))
+                            columns: const [
+                              DataColumn(label: Text('จังหวัด',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),)),
+                              DataColumn(label: Text('รายใหม่',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold))),
+                              DataColumn(label: Text('สะสม',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)))
                             ],
                             rows: [
                               DataRow(cells: [
-                                  DataCell(Text('1.' + result[casenewn.indexOf(topten[9])].province.toString())),
-                                  DataCell(Text('20')),
-                                  DataCell(Text('20')),
+                                  DataCell(Text('1.' + result[casenewn.indexOf(topten[9])].province.toString(),style: const TextStyle(fontSize: 16))),
+                                  DataCell(Text(result[casenewn.indexOf(topten[9])].newCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                                  DataCell(Text(result[casenewn.indexOf(topten[9])].totalCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
                                 ]
                               ),
                               DataRow(cells: [
-                                DataCell(Text('2.' + result[casenewn.indexOf(topten[8])].province.toString())),
-                                DataCell(Text('30')),
-                                DataCell(Text('30')),
+                                DataCell(Text('2.' + result[casenewn.indexOf(topten[8])].province.toString(),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[8])].newCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[8])].totalCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
                               ]
-                              )
+                              ),
+                               DataRow(cells: [
+                                DataCell(Text('3.' + result[casenewn.indexOf(topten[7])].province.toString(),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[7])].newCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[7])].totalCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                              ]
+                              ),
+                               DataRow(cells: [
+                                DataCell(Text('4.' + result[casenewn.indexOf(topten[6])].province.toString(),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[6])].newCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[6])].totalCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                              ]
+                              ),
+                               DataRow(cells: [
+                                DataCell(Text('5.' + result[casenewn.indexOf(topten[5])].province.toString(),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[5])].newCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[5])].totalCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                              ]
+                              ),
+                               DataRow(cells: [
+                                DataCell(Text('6.' + result[casenewn.indexOf(topten[4])].province.toString(),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[4])].newCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[4])].totalCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                              ]
+                              ),
+                               DataRow(cells: [
+                                DataCell(Text('7.' + result[casenewn.indexOf(topten[3])].province.toString(),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[3])].newCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[3])].totalCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                              ]
+                              ),
+                               DataRow(cells: [
+                                DataCell(Text('8.' + result[casenewn.indexOf(topten[2])].province.toString(),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[2])].newCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[2])].totalCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                              ]
+                              ),
+                               DataRow(cells: [
+                                DataCell(Text('9.' + result[casenewn.indexOf(topten[1])].province.toString(),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[1])].newCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[1])].totalCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                              ]
+                              ),
+                               DataRow(cells: [
+                                DataCell(Text('10.' + result[casenewn.indexOf(topten[0])].province.toString(),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[0])].newCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                                DataCell(Text(result[casenewn.indexOf(topten[0])].totalCase.toString().replaceAllMapped(reg, mathFunc),style: const TextStyle(fontSize: 16))),
+                              ]
+                              ),
                             ],
                           ),
 
-                          // Row(
-                          //  children: [SizedBox(width: 15,),
-                          //     Column(children: [
-                                
-                          //       Text(
-                          //         '1. '+ result[casenewn.indexOf(topten[9])].province.toString(),
-                          //         style: const TextStyle(
-                          //             color: Color.fromARGB(255, 220, 0, 0),
-                          //             fontSize: 20),),
-                          //       Text(
-                          //         '2. '+ result[casenewn.indexOf(topten[8])].province.toString(),
-                          //         style: const TextStyle(
-                          //             color: Color.fromARGB(255, 220, 0, 0),
-                          //             fontSize: 20),),
-                          //       Text(
-                          //         '3. '+ result[casenewn.indexOf(topten[7])].province.toString(),
-                          //         style: const TextStyle(
-                          //             color: Color.fromARGB(255, 220, 0, 0),
-                          //             fontSize: 20),),
-                          //       Text(
-                          //         '4. '+ result[casenewn.indexOf(topten[6])].province.toString(),
-                          //         style: const TextStyle(
-                          //             color: Color.fromARGB(255, 220, 0, 0),
-                          //             fontSize: 20),),
-                          //       Text(
-                          //         '5. '+ result[casenewn.indexOf(topten[5])].province.toString(),
-                          //         style: const TextStyle(
-                          //             color: Color.fromARGB(255, 220, 0, 0),
-                          //             fontSize: 20),),
-                          //       Text(
-                          //         '6. '+ result[casenewn.indexOf(topten[4])].province.toString(),
-                          //         style: const TextStyle(
-                          //             color: Color.fromARGB(255, 220, 0, 0),
-                          //             fontSize: 20),),
-                          //       Text(
-                          //         '7. '+ result[casenewn.indexOf(topten[3])].province.toString(),
-                          //         style: const TextStyle(
-                          //             color: Color.fromARGB(255, 220, 0, 0),
-                          //             fontSize: 20),),
-                          //       Text(
-                          //         '8. '+ result[casenewn.indexOf(topten[2])].province.toString(),
-                          //         style: const TextStyle(
-                          //             color: Color.fromARGB(255, 220, 0, 0),
-                          //             fontSize: 20),),
-                          //       Text(
-                          //         '9. '+ result[casenewn.indexOf(topten[1])].province.toString(),
-                          //         style: const TextStyle(
-                          //             color: Color.fromARGB(255, 220, 0, 0),
-                          //             fontSize: 20),),
-                          //       Text(
-                          //         '10. '+ result[casenewn.indexOf(topten[0])].province.toString(),
-                          //         style: const TextStyle(
-                          //             color: Color.fromARGB(255, 220, 0, 0),
-                          //             fontSize: 20),),
-                          //           ]),
-                          //   ],
-                          // ),
+                       
 
                       ]),
                       
