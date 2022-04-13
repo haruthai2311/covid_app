@@ -23,10 +23,10 @@ class _emergencyScreenState extends State<emergencyScreen> {
           _buildemergency(screenHeight),
         ],
       ),
-      //bottomSheet: buildButton(screenHeight),
     );
   }
 
+//ส่วนหัว
   SliverToBoxAdapter _buildHeader(double screenHeight) {
     return SliverToBoxAdapter(
       child: Container(
@@ -74,7 +74,10 @@ class _emergencyScreenState extends State<emergencyScreen> {
     );
   }
 
+//ส่วนเบอร์โทรทั้งหมด
   SliverToBoxAdapter _buildemergency(double screenHeight) {
+    
+    //ประกาศตัวแปรเก็บเบอร์โทร
     final number1 = "1669";
     final number2 = "1506";
     final number3 = "1111";
@@ -103,6 +106,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                 backgroundImage: NetworkImage(
                     'https://www.niems.go.th/1/upload/migrate/file/Logo4C(2).jpg'),
               ),
+              //ปุ่ม
               trailing: TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.lightGreenAccent,
@@ -112,6 +116,7 @@ class _emergencyScreenState extends State<emergencyScreen> {
                     
                   ),
                 ),
+                //ดึงเข้าหน้า Call Phone
                 child: Text('Call', style: TextStyle(color: Colors.black)),
                 onPressed: () async {
                   launch('tel://$number1');
