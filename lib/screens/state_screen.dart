@@ -30,6 +30,7 @@ class _StateScreenState extends State<StateScreen> {
                   indicatorColor: Color.fromARGB(255, 75, 0, 150),
                   labelColor: Color.fromARGB(255, 32, 0, 121),
                   unselectedLabelColor: Color.fromARGB(137, 113, 24, 255),
+                  //แบ่งเป็น 2 tab : ข้อมูลภาพรวมกับข้อมูลรายพื้นที่
                   tabs: <Widget>[
                     Tab(
                       icon: Icon(Icons.flag_rounded),
@@ -47,6 +48,7 @@ class _StateScreenState extends State<StateScreen> {
                   SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
+                      //เรียก class StatsGridToday,CovidBarChart,LineChartDeath มาแสดงในหน้าของ tab ข้อมูลภาพรวม
                       children: const [
                         StatsGridToday(),
                         SizedBox(height: 10),
@@ -60,6 +62,7 @@ class _StateScreenState extends State<StateScreen> {
                   SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
+                      //เรียก class StatsGridProvinceToday,TopTenNewcase มาแสดงในหน้าของ tab ข้อมูลรายพื้นที่
                       children: const [
                         StatsGridProvinceToday(),
                         SizedBox(height: 10),

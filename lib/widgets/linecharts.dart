@@ -32,6 +32,7 @@ class _LineChartDeathState extends State<LineChartDeath> {
     return _dataFromAPITimeline;
   }
 
+//ค่าแกน y ของกราฟ
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
       color: Color.fromARGB(255, 185, 188, 192),
@@ -82,11 +83,12 @@ class _LineChartDeathState extends State<LineChartDeath> {
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           var result = snapshot.data;
-          var index = result.length - 1;
+          var index = result.length - 1; //จำนวนของข้อมูล - 1
           return Stack(
             children: <Widget>[
               AspectRatio(
-                aspectRatio: 1.5,
+                //สร้างวิดเจ็ตที่มีอัตราส่วนกว้างยาวเฉพาะ
+                aspectRatio: 1.5, //อัตราส่วนของวิดเจ็ต
                 child: Container(
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(
@@ -173,6 +175,7 @@ class _LineChartDeathState extends State<LineChartDeath> {
                                         fontSize: 13,
                                       );
                                       Widget text;
+                                      //ค่าแกน x (วันที่-เดือน)
                                       switch (value.toInt()) {
                                         case 0:
                                           text = Text(
@@ -307,6 +310,7 @@ class _LineChartDeathState extends State<LineChartDeath> {
                                       width: 1)),
                               lineBarsData: [
                                 LineChartBarData(
+                                  //แสดงข้อมูลยอดผู้เสียชีวิตใหม่  index คือข้อมูลล่าสุด
                                   spots: [
                                     FlSpot(0,
                                         result[index - 6].newDeath.toDouble()),
@@ -353,6 +357,7 @@ class _LineChartDeathState extends State<LineChartDeath> {
                             ),
                           ),
                         ),
+                        //คำอธิบายแกน x
                         const Text(
                           '1 week (Day-Month)',
                           style: TextStyle(
