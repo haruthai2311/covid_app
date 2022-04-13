@@ -12,6 +12,7 @@ class StatsGridProvinceToday extends StatefulWidget {
 class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
   late List<CovidToDayProvinces> _dataFromAPIProvin;
 
+  //ตัวเลือก dropdpwn ของจังหวัด
   String dropdownvalue = 'สกลนคร';
   var items = [
     'กระบี่',
@@ -99,14 +100,18 @@ class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
     getDataProvin();
   }
 
+  //สร้างเมธอดดึงข้อมูล
   Future<List<CovidToDayProvinces>> getDataProvin() async {
     var response = await http.get(Uri.parse(
         'https://covid19.ddc.moph.go.th/api/Cases/today-cases-by-provinces'));
+    
+    //แปลง JSON เป็น Object
     _dataFromAPIProvin =
         covidToDayProvincesFromJson(response.body).cast<CovidToDayProvinces>();
     return _dataFromAPIProvin;
   }
 
+  //ใช้เปลี่ยนรูปแบบจำนวนให้มีจุลภาคคั่น
   RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
   String Function(Match) mathFunc = (Match match) => '${match[1]},';
 
@@ -129,7 +134,6 @@ class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
                         //to show search box
                         showSearchBox: true,
                         showSelectedItem: true,
-                        
                         searchBoxDecoration: const InputDecoration(
                           prefixIcon: Icon(Icons.search),
                         ),
@@ -141,12 +145,12 @@ class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
                         ),
                         //list of dropdown items
                         items: items,
-                        //label: "จังหวัด",
                         selectedItem: dropdownvalue,
+                        //เปลี่ยนค่า dropdown เป็นค่าใหม่ที่เลือก
                         onChanged: (newValue) {
                           setState(() {
                             dropdownvalue = newValue.toString();
-                            print(items.indexOf(dropdownvalue)) ;
+                            //print(items.indexOf(dropdownvalue)) ;
                           });
                         },
                       ),
@@ -156,6 +160,7 @@ class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
                           children: <Widget>[
                             _buildStatCard(
                                 'จำนวนผู้ติดเชื้อรายใหม่',
+                                //items.indexOf(dropdownvalue) คือตำแหน่งของ dropdown ที่เลือก แล้วดึงข้อมูลที่ตรงกับตำแหน่งของจังหวัด
                                 result[items.indexOf(dropdownvalue)]
                                     .newCase
                                     .toString()
@@ -225,6 +230,7 @@ class _StatsGridProvinceTodayState extends State<StatsGridProvinceToday> {
     );
   }
 
+  //เป็นฟอร์มการ์ด เอาไว้เรียกใช้แสดงข้อมูล
   Expanded _buildStatCard(String title, String count, String subtitle,
       String subcount, MaterialColor color) {
     return Expanded(

@@ -18,13 +18,17 @@ class _StatsGridToday extends State<StatsGridToday> {
     getData();
   }
 
+  //สร้างเมธอดดึงข้อมูล
   Future<List<CovidToDay>> getData() async {
     var response = await http.get(
         Uri.parse('https://covid19.ddc.moph.go.th/api/Cases/today-cases-all'));
+
+    //แปลง JSON เป็น Object
     _dataFromAPI = covidToDayFromJson(response.body);
     return _dataFromAPI;
   }
 
+  //ใช้เปลี่ยนรูปแบบจำนวนให้มีจุลภาคคั่น
   RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
   String Function(Match) mathFunc = (Match match) => '${match[1]},';
 
@@ -34,9 +38,11 @@ class _StatsGridToday extends State<StatsGridToday> {
       padding: const EdgeInsets.all(8.0),
       child: SizedBox( 
           height: MediaQuery.of(context).size.height * 0.30,
+          //ใช้ FutureBuilder ในการดึงข้อมูลจาก API และนำข้อมูลมาแสดงผ่าน snapshot
           child: FutureBuilder(
               future: getData(),
               builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                //ตรวจสอบสถานะการดึงข้อมูลสำเร็จ
                 if (snapshot.connectionState == ConnectionState.done) {
                   var result = snapshot.data;
                   return Column(
@@ -46,6 +52,7 @@ class _StatsGridToday extends State<StatsGridToday> {
                           children: <Widget>[
                             _buildStatCardToday(
                                 'จำนวนผู้ติดเชื้อรายใหม่',
+                                //ดึงข้อมูล ผู้ติดเชื้อรายใหม่มาแสดง
                                 result[0]
                                     .newCase
                                     .toString()
@@ -124,6 +131,7 @@ class _StatsGridToday extends State<StatsGridToday> {
     );
   }
 
+  //เป็นฟอร์มการ์ด เอาไว้เรียกใช้แสดงข้อมูล
   Expanded _buildStatCardToday(String title, String count, String subtitle,
       String subcount, MaterialColor color) {
     return Expanded(
