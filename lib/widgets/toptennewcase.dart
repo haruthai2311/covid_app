@@ -48,7 +48,7 @@ class _TopTenNewcaseState extends State<TopTenNewcase> {
             //
 
           }
-          print(casenewn);
+          //print(casenewn);
 
           var casenew = [];
           for (var i = 0; i < result.length; i++) {

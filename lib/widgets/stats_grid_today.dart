@@ -82,7 +82,7 @@ class _StatsGridToday extends State<StatsGridToday> {
                         child: Row(
                           children: <Widget>[
                             _buildStatCardToday(
-                                'ในประเทศราย',
+                                'ในประเทศ',
                                 result[0]
                                     .newCaseExcludeabroad
                                     .toString()
