@@ -20,7 +20,7 @@ class _InfoScreenState extends State<InfoScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 144, 90, 231),
+        backgroundColor: const Color.fromARGB(255, 144, 90, 231),
         title: const Text(
           'อาการ! COVID-19',
           style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
@@ -51,7 +51,7 @@ class _InfoScreenState extends State<InfoScreen> {
           ),
           
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 25),
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             height: 50,
             child: SmoothPageIndicator(
               controller: pageController,
@@ -60,7 +60,7 @@ class _InfoScreenState extends State<InfoScreen> {
                 dotDecoration: DotDecoration(
                   width: 8,
                   height: 8,
-                  color: Color.fromARGB(255, 126, 125, 126).withOpacity(0.5),
+                  color: const Color.fromARGB(255, 126, 125, 126).withOpacity(0.5),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 activeDotDecoration: DotDecoration(

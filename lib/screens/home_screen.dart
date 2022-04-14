@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({ Key? key }) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -12,16 +12,15 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final YoutubePlayerController _controller = YoutubePlayerController(
-    initialVideoId: '0oMZf_ogKUk',
-    flags: const YoutubePlayerFlags(
-      autoPlay: false,
-      mute: false,
+      initialVideoId: '0oMZf_ogKUk', //key ของ video youtube
+      flags: const YoutubePlayerFlags(
+        autoPlay: false,
+        mute: false,
+      ));
 
-    ));
-
-   @override
+  @override
   Widget build(BuildContext context) {
-  final screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: const Text('ป้องกันไว้ ห่างไกลโควิด'),
@@ -46,8 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: const BoxDecoration(
           color: Color.fromARGB(255, 134, 74, 231),
           borderRadius: BorderRadius.only(
-           bottomLeft: Radius.circular(30.0),
-           bottomRight: Radius.circular(30.0),
+            bottomLeft: Radius.circular(30.0),
+            bottomRight: Radius.circular(30.0),
           ),
         ),
         child: Column(
@@ -103,7 +102,8 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 20.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: prevention.map((e) => Column(
+              children: prevention
+                  .map((e) => Column(
                         children: <Widget>[
                           Image.asset(
                             e.keys.first,
@@ -139,17 +139,17 @@ class _HomeScreenState extends State<HomeScreen> {
         height: screenHeight * 0.20,
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [Color.fromARGB(255, 255, 181, 200), Color.fromARGB(255, 255, 0, 0)],
+            colors: [
+              Color.fromARGB(255, 255, 181, 200),
+              Color.fromARGB(255, 255, 0, 0)
+            ],
           ),
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: InkWell(
-          child: 
-          
-            Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                
                 Image.asset('assets/images/own_test.png'),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -175,13 +175,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 )
               ],
-            ), onTap: () => launch('https://savethai.anamai.moph.go.th/poll.php')
-          
-        ),
+            ),
+            onTap: () => launch(
+                'https://savethai.anamai.moph.go.th/poll.php') //คลิกแล้วลิงค์ไปแบบสอบถามของเว็บไทยเซฟไทย
+
+            ),
       ),
     );
-    
   }
+
   SliverToBoxAdapter _buildYouTube(double screenHeight) {
     return SliverToBoxAdapter(
       child: Container(
@@ -199,31 +201,26 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 20),
             Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                YoutubePlayer(
-                  //width: 350,
-                  controller: _controller,
-                  //showVideoProgressIndicator: true,
-                  progressIndicatorColor: Colors.blueAccent,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  YoutubePlayer(
+                    controller: _controller,
+                    progressIndicatorColor: Colors.blueAccent,
                   ),
-              ]
-            ),
+                ]),
             const SizedBox(height: 10),
             Center(
+              //คลิกแล้วลิงค์ไป youtube
               child: InkWell(
                 child: const Text('ที่มา : YouTube ความรู้สู้ COVID-19🏥'),
-                onTap: () => launch('https://www.youtube.com/watch?v=0oMZf_ogKUk'),
+                onTap: () =>
+                    launch('https://www.youtube.com/watch?v=0oMZf_ogKUk'),
               ),
             ),
             const SizedBox(height: 70),
           ],
-          
         ),
       ),
     );
   }
-
-  
-
 }
